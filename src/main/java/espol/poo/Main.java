@@ -52,7 +52,7 @@ public class Main {
                 // Registro diario de Sostenibilidad
                 break;
             case "5" :
-                // Juego de memoria
+                // Juego de memoria jaja
                 break;
             case "6" :
                 System.out.println("Saliendo de la aplicación...");
