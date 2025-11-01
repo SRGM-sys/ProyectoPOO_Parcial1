@@ -1,13 +1,19 @@
 package espol.poo.vista;
-import espol.poo.modelo.*;
-import espol.poo.controlador.ControladorActividades;
-import espol.poo.controlador.ControladorSesiones;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.LocalDateTime;
+
+import espol.poo.controlador.ControladorActividades;
+import espol.poo.controlador.ControladorSesiones;
+import espol.poo.modelo.Actividad;
+import espol.poo.modelo.ActividadAcademica;
+import espol.poo.modelo.Prioridad;
+import espol.poo.modelo.SesionEnfoque;
+import espol.poo.modelo.TecnicaEnfoque;
+import espol.poo.modelo.TipoAcademica;
 
 public class VistaActividadSesion {
     private DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -24,7 +30,7 @@ public class VistaActividadSesion {
 
     public void mostrarMenu() {
         System.out.println();
-        System.out.println(BOLD + "MENÚ" + RESET);
+        System.out.println(BOLD + "\t\t.:MENÚ:." + RESET);
         System.out.println("1 - Gestión de Actividades");
         System.out.println("2 - Técnicas de Enfoque (Manejo de tiempo)"); 
         System.out.println("3 - Control de hidratación");
