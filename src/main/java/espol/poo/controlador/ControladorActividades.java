@@ -8,7 +8,6 @@ public class ControladorActividades {
     private List<Actividad> actividades = new ArrayList<>();
     private int proximoId = 1;
     public ControladorActividades() { inicializarActividades(); }
-
     private void inicializarActividades() {
         ActividadPersonal personal = new ActividadPersonal(proximoId++, "Cita médica", "Cita médica con especialista", LocalDateTime.of(2025,11,30,10,0), "Clínica Central");
         personal.setTiempoEstimadoMinutos(45.0);
@@ -22,42 +21,16 @@ public class ControladorActividades {
         examen.setTiempoEstimadoMinutos(180.0);
         actividades.add(personal); actividades.add(proyecto); actividades.add(tarea); actividades.add(examen);
     }
-    public List<Actividad> listarActividades() { 
-        return actividades; 
-    }
-    public List<Actividad> listarPendientes() { 
-        List<Actividad> r = new ArrayList<>(); 
-        for (Actividad a: actividades) 
-            if (a.getAvance() < 100.0) r.add(a); 
-        return r; 
-    }
-    public Optional<Actividad> buscarPorId(int id) { 
-        return actividades.stream().filter(a->a.getId()==id).findFirst(); 
-    }
+    public List<Actividad> listarActividades() { return actividades; }
+    public List<Actividad> listarPendientes() { List<Actividad> r = new ArrayList<>(); for (Actividad a: actividades) if (a.getAvance() < 100.0) r.add(a); return r; }
+    public Optional<Actividad> buscarPorId(int id) { return actividades.stream().filter(a->a.getId()==id).findFirst(); }
     public Actividad crearActividadPersonal(String nombre, String descripcion, LocalDateTime fechaVenc, String lugar, Prioridad prioridad, double tiempoEstimadoMinutos) {
         ActividadPersonal ap = new ActividadPersonal(proximoId++, nombre, descripcion, fechaVenc, lugar); ap.setPrioridad(prioridad); ap.setTiempoEstimadoMinutos(tiempoEstimadoMinutos); actividades.add(ap); return ap;
     }
     public Actividad crearActividadAcademica(String nombre, String descripcion, LocalDateTime fechaVenc, String asignatura, TipoAcademica tipo, Prioridad prioridad, double tiempoEstimadoHoras) {
         ActividadAcademica aa = new ActividadAcademica(proximoId++, nombre, descripcion, fechaVenc, asignatura, tipo); aa.setPrioridad(prioridad); aa.setTiempoEstimadoMinutos(tiempoEstimadoHoras * 60.0); actividades.add(aa); return aa;
     }
-    public void agregarActividad(Actividad a) { 
-        a.setId(proximoId++); 
-        actividades.add(a); 
-    }
-    public boolean eliminarActividad(int id) { 
-        Optional<Actividad> oa = buscarPorId(id); 
-        if (oa.isPresent()) { 
-            actividades.remove(oa.get()); 
-            return true; 
-        } 
-        return false; 
-    }
-    public boolean actualizarAvance(int id, double nuevo) { 
-        Optional<Actividad> oa = buscarPorId(id); 
-        if (oa.isPresent()){ 
-            oa.get().setAvance(nuevo); 
-            return true; 
-        } 
-        return false; 
-    }
+    public void agregarActividad(Actividad a) { a.setId(proximoId++); actividades.add(a); }
+    public boolean eliminarActividad(int id) { Optional<Actividad> oa = buscarPorId(id); if (oa.isPresent()) { actividades.remove(oa.get()); return true; } return false; }
+    public boolean actualizarAvance(int id, double nuevo) { Optional<Actividad> oa = buscarPorId(id); if (oa.isPresent()){ oa.get().setAvance(nuevo); return true; } return false; }
 }

@@ -146,11 +146,11 @@ public class VistaActividadSesion {
             System.out.print("Presione [ENTER] para volver al menú principal..."); sc.nextLine();
         } else {
             System.out.println();
-            System.out.println("=========================================");
-            System.out.println("     C R E A R  A C T I V I D A D");
-            System.out.println("=========================================");
+            System.out.println("==========================================");
+            System.out.println("       C R E A R  A C T I V I D A D");
+            System.out.println("==========================================");
             System.out.println();
-            System.out.println("----------- PASO 2: TIPO (Académica) -----------");
+            System.out.println("-------- PASO 2: TIPO (Académica) --------");
             System.out.println("Ha seleccionado: ACADÉMICA.");
             System.out.println("Seleccione el tipo específico:");
             System.out.println("1. TAREA");
@@ -161,7 +161,7 @@ public class VistaActividadSesion {
             if (t.equals("2")) tipo = TipoAcademica.EXAMEN;
             else if (t.equals("3")) tipo = TipoAcademica.PROYECTO;
             System.out.println();
-            System.out.println("----------- PASO 3: DETALLES -----------");
+            System.out.println("------------ PASO 3: DETALLES ------------");
             System.out.print("Ingrese el Nombre de la Actividad: "); String nombre = sc.nextLine();
             System.out.print("Ingrese la Descripción: "); String desc = sc.nextLine();
             System.out.print("Ingrese la Asignatura: "); String asign = sc.nextLine();
@@ -176,9 +176,9 @@ public class VistaActividadSesion {
             try { tiempoHoras = Double.parseDouble(th); } catch(Exception ex) {}
             controladorA.crearActividadAcademica(nombre, desc, fechaV, asign, tipo, prioridad, tiempoHoras);
             System.out.println();
-            System.out.println("----------------------------------------");
+            System.out.println("------------------------------------------");
             System.out.println(tipo.name() + " '" + nombre + "' creado con éxito.");
-            System.out.println("----------------------------------------");
+            System.out.println("------------------------------------------");
             System.out.print("Presione [ENTER] para volver al menú principal..."); sc.nextLine();
         }
     }
