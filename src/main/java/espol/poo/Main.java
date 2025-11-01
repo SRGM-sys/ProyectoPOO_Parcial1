@@ -49,7 +49,7 @@ public class Main {
                 // Control de hidratación
                 break;
             case "4" :
-                // Registro diario de Sostenibilidad
+                System.out.println("holaaaaa");
                 break;
             case "5" :
                 // Juego de memoria jaja
