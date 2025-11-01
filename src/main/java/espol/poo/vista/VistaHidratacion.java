@@ -63,13 +63,34 @@ public class VistaHidratacion {
         }
     }
 
-    // Se va a presnetar este bloque de mensaje si el usuario confirma la actualización de la nueva Meta diaria
+    // Se va a presentar este bloque de mensaje si el usuario confirma la actualización de la nueva Meta diaria
     public void progresoActualizado(Scanner scanner){
         System.out.println("\nMeta diaria de hidratación actualizada a "+controlador.getMetaDiariaML()+" ml con éxito.");
         System.out.println("\n\t\t\t--- PROGRESO ACTUALIZADO ---");
         System.out.println("Acumulado hoy: "+controlador.acumuladoActual());
         System.out.println("Nueva meta: "+controlador.getMetaDiariaML());
         System.out.println("Progreso: "+controlador.generarBarra());
+        
+        System.out.print("\nPresione [ENTER] para continuar...");
+        scanner.nextLine(); // Se limpia el Buffer
+        scanner.nextLine(); // Esperar hasta ingresar ENTER
+    }
+
+    // Opción 3 del menu Hidratación, se va a mostrar un resumen completo de la actividad
+    public void procesoDiario(Scanner scanner){
+        System.out.println("\n\t\t\t--- PROGRESO DE HIDRATACIÓN DIARIA ---");
+        System.out.println("Fecha: "+controlador.fechaActual());
+        
+        System.out.println("\nMeta diaria (ML): "+controlador.getMetaDiariaML()+ "ml");
+        System.out.println("Ingesta Acumulada: "+controlador.acumuladoActual()+" ml");
+        
+        System.out.println("\nFalta: "+controlador.faltante()+" ml");
+        System.out.println("Progreso: "+controlador.generarBarra());
+        
+        System.out.println("\nHistorial de registros Hoy:");
+        controlador.mostrarRegistros();
+        System.out.println("----------------------------------------------");
+        System.out.println("¡Recuerda mantenerte hidratado!");
         
         System.out.print("\nPresione [ENTER] para continuar...");
         scanner.nextLine(); // Se limpia el Buffer

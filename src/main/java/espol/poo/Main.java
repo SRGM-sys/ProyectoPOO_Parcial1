@@ -65,8 +65,10 @@ public class Main {
                     switch(op){
                         case 1: vistaHidratacion.registrarIngesta(scanner); break;
                         case 2: vistaHidratacion.establecerMetaDiaria(scanner); break;
-
+                        case 3: vistaHidratacion.procesoDiario(scanner); break;
                         case 4: System.out.println("\nVolviendo al menú principal..."); break;
+
+                        default: System.out.println("\nIngreso incorrecto");
                     }
                 } while (op != 4);
                 scanner.nextLine(); //Limpiando el Buffer

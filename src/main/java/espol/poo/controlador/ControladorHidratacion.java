@@ -1,6 +1,8 @@
 package espol.poo.controlador;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import espol.poo.modelo.RegistroIngestaAgua;
@@ -85,4 +87,35 @@ public class ControladorHidratacion {
             return false;
         }
     }
+
+    // Este método retorna la fecha local actual
+    public LocalDate fechaActual(){
+        LocalDate fechaActual = LocalDate.now();
+        return fechaActual;
+    }
+
+    // Este método retornará la cantidad de agua que falta para completar la menta
+    public double faltante(){
+        double faltante = metaDiariaML - acumuladoActual();
+        if(faltante > 0){
+            return faltante;
+        // Si ya completo la meta, entonces no falta nada
+        } else{
+            return 0;
+        }
+    }
+
+    // Este método va a presentar todos los registros que se han hecho
+    public void mostrarRegistros(){
+        // Esto de aquí sirve para dar el formato de hora: 09:30 AM
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        
+        for(RegistroIngestaAgua registro: registros){
+            String hora = registro.getHora().format(formatter);
+            System.out.println("- "+ hora +": " +registro.getCantidadML() +" ml");
+        } 
+         
+    }
+
+    
 }
