@@ -52,7 +52,7 @@ public class Main {
                 System.out.println("holaaaaa");
                 break;
             case "5" :
-                // Juego de memoria jaja
+                System.out.println("holaaaaa");
                 break;
             case "6" :
                 System.out.println("Saliendo de la aplicación...");
