@@ -53,10 +53,10 @@ public class Main {
                 break;
 
 
-            case "3" :
+            case "3" : // Control de hidratación
                 int op;
                 do {
-                    // Control de hidratación
+                    
                     vistaHidratacion.mostrarMenu();
                     System.out.print("Elija una opcion: ");
                     op = scanner.nextInt();
@@ -64,13 +64,14 @@ public class Main {
                     // Submenú del control Hidratación
                     switch(op){
                         case 1: vistaHidratacion.registrarIngesta(scanner); break;
+                        case 2: vistaHidratacion.establecerMetaDiaria(scanner); break;
 
                         case 4: System.out.println("\nVolviendo al menú principal..."); break;
                     }
                 } while (op != 4);
                 scanner.nextLine(); //Limpiando el Buffer
                 break;
-                
+
             case "4" :
                 System.out.println("holaaaaa");
                 break;

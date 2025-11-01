@@ -76,5 +76,13 @@ public class ControladorHidratacion {
         return sb.toString();
     }
 
-    
+    // Este bloque se comprueba la confirmación del usuario y de ser verdadero se actualiza el valor de metaDiaria
+    public Boolean confirmacion(char letra, double nuevaMetaDiaria){
+        if(letra == 'S' || letra == 's'){
+            this.metaDiariaML = nuevaMetaDiaria;
+            return true;
+        } else{
+            return false;
+        }
+    }
 }

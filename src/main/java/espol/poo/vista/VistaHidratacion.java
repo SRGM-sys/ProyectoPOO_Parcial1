@@ -44,4 +44,36 @@ public class VistaHidratacion {
         scanner.nextLine(); // Esperar hasta ingresar ENTER
     }
 
+    // Segunda opción del subMenu Hidratación
+    public void establecerMetaDiaria(Scanner scanner){
+        System.out.println("\n\t\t\t--- ESTABLECER META DIARIA DE HIDRATACIÓN ---");
+        System.out.println("Meta diaria actual: "+ controlador.getMetaDiariaML() +" ml");
+        System.out.print("Ingrese la nueva meta diaria de hidratación (en **mililitros**): ");
+        double nuevaMetaDiaria = scanner.nextDouble();
+        System.out.print("\n¿Confirma que la nueva meta diaria es "+nuevaMetaDiaria+" ml? (S/N): ");
+        char confirmacion = scanner.next().charAt(0);
+        
+        if(controlador.confirmacion(confirmacion, nuevaMetaDiaria)){
+            progresoActualizado(scanner);
+        } else{
+            System.out.println("\nNo se realizaron los cambios");
+            System.out.print("\nPresione [ENTER] para continuar...");
+            scanner.nextLine(); // Se limpia el Buffer
+            scanner.nextLine(); // Esperar hasta ingresar ENTER
+        }
+    }
+
+    // Se va a presnetar este bloque de mensaje si el usuario confirma la actualización de la nueva Meta diaria
+    public void progresoActualizado(Scanner scanner){
+        System.out.println("\nMeta diaria de hidratación actualizada a "+controlador.getMetaDiariaML()+" ml con éxito.");
+        System.out.println("\n\t\t\t--- PROGRESO ACTUALIZADO ---");
+        System.out.println("Acumulado hoy: "+controlador.acumuladoActual());
+        System.out.println("Nueva meta: "+controlador.getMetaDiariaML());
+        System.out.println("Progreso: "+controlador.generarBarra());
+        
+        System.out.print("\nPresione [ENTER] para continuar...");
+        scanner.nextLine(); // Se limpia el Buffer
+        scanner.nextLine(); // Esperar hasta ingresar ENTER
+    }
+
 }
