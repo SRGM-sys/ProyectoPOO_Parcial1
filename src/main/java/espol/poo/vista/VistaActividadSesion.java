@@ -28,10 +28,9 @@ public class VistaActividadSesion {
         System.out.println("1 - Gestión de Actividades");
         System.out.println("2 - Técnicas de Enfoque (Manejo de tiempo)"); 
         System.out.println("3 - Control de hidratación");
-        System.out.println("4 - Registrar horas de sueño (grupo 5 integrantes)"); 
-        System.out.println("5 - Registro diario de Sostenibilidad");
-        System.out.println("6 - Juego de memoria");
-        System.out.println("7 - Salir");
+        System.out.println("4 - Registro diario de Sostenibilidad");
+        System.out.println("5 - Juego de memoria");
+        System.out.println("6 - Salir");
         System.out.print("Ingrese su opción: ");
     }
 
@@ -266,7 +265,9 @@ public class VistaActividadSesion {
 
     public void iniciarDeepWork(Scanner sc) {
         System.out.println("--------------------------------- LISTADO DE ACTIVIDADES PENDIENTES ---------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
         mostrarListadoActividades(controladorA.listarPendientes());
+        System.out.println("-----------------------------------------------------------------------------------------------------");
         System.out.print("Ingrese ID de la actividad (o 0 para salir): ");
         int id = -1;
         try { id = Integer.parseInt(sc.nextLine().trim()); } catch(Exception e) {}

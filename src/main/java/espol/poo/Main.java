@@ -45,13 +45,22 @@ public class Main {
                     default: System.out.println("Opción no válida."); break;
                 }
                 break;
-            case "7" :
+            case "3" :
+                // Control de hidratación
+                break;
+            case "4" :
+                // Registro diario de Sostenibilidad
+                break;
+            case "5" :
+                // Juego de memoria
+                break;
+            case "6" :
                 System.out.println("Saliendo de la aplicación...");
                 break;
             default :
                 System.out.println("Opción no válida.");
         }
-    } while (!opcion.equals("7"));
+    } while (!opcion.equals("6"));
 
     scanner.close();
   }
