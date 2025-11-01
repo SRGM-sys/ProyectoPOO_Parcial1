@@ -1,15 +1,21 @@
 package espol.poo;
 
-import espol.poo.vista.VistaActividadSesion;
-import espol.poo.controlador.ControladorActividades;
-import espol.poo.controlador.ControladorSesiones;
 import java.util.Scanner;
+
+import espol.poo.controlador.ControladorActividades;
+import espol.poo.controlador.ControladorHidratacion;
+import espol.poo.controlador.ControladorSesiones;
+import espol.poo.vista.VistaActividadSesion;
+import espol.poo.vista.VistaHidratacion;
 
 public class Main {
   public static void main(String[] args) {
     ControladorActividades controladorA = new ControladorActividades();
     ControladorSesiones controladorS = new ControladorSesiones(controladorA);
     VistaActividadSesion vistaActividadSesion = new VistaActividadSesion(controladorA, controladorS);
+
+    ControladorHidratacion controladorH = new ControladorHidratacion();
+    VistaHidratacion vistaHidratacion = new VistaHidratacion(controladorH);
 
     Scanner scanner = new Scanner(System.in);
     String opcion = "";
@@ -45,9 +51,26 @@ public class Main {
                     default: System.out.println("Opción no válida."); break;
                 }
                 break;
+
+
             case "3" :
-                // Control de hidratación
+                int op;
+                do {
+                    // Control de hidratación
+                    vistaHidratacion.mostrarMenu();
+                    System.out.print("Elija una opcion: ");
+                    op = scanner.nextInt();
+
+                    // Submenú del control Hidratación
+                    switch(op){
+                        case 1: vistaHidratacion.registrarIngesta(scanner); break;
+
+                        case 4: System.out.println("\nVolviendo al menú principal..."); break;
+                    }
+                } while (op != 4);
+                scanner.nextLine(); //Limpiando el Buffer
                 break;
+                
             case "4" :
                 System.out.println("holaaaaa");
                 break;
