@@ -1,15 +1,18 @@
 package espol.poo;
 
-import espol.poo.vista.VistaActividadSesion;
-import espol.poo.vista.VistaSostenibilidad;
-import espol.poo.controlador.ControladorActividades;
-import espol.poo.controlador.ControladorSesiones;
-import espol.poo.controlador.ControladorSostenibilidad;
-import espol.poo.vista.VistaJuego;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
+import espol.poo.controlador.ControladorActividades;
+import espol.poo.controlador.ControladorHidratacion;
+import espol.poo.controlador.ControladorSesiones;
+import espol.poo.controlador.ControladorSostenibilidad;
+import espol.poo.vista.VistaActividadSesion;
+import espol.poo.vista.VistaHidratacion;
+import espol.poo.vista.VistaJuego;
+import espol.poo.vista.VistaSostenibilidad;
+
 
 public class Main {
         private static final int DIMENSION = 4;
@@ -21,6 +24,8 @@ public class Main {
     ControladorActividades controladorA = new ControladorActividades();
     ControladorSesiones controladorS = new ControladorSesiones(controladorA);
     VistaActividadSesion vistaActividadSesion = new VistaActividadSesion(controladorA, controladorS);
+    ControladorHidratacion controladorH = new ControladorHidratacion();
+    VistaHidratacion vistaHidratacion = new VistaHidratacion(controladorH);
     ControladorSostenibilidad controlSostenibilidad = new ControladorSostenibilidad();
     VistaSostenibilidad vistaSostenibilidad = new VistaSostenibilidad(controlSostenibilidad);
     
@@ -60,6 +65,24 @@ public class Main {
                 }
                 break;
             case "3" :
+                int op;
+                do {
+                    
+                    vistaHidratacion.mostrarMenu();
+                    System.out.print("Elija una opcion: ");
+                    op = scanner.nextInt();
+
+                    // Submenú del control Hidratación
+                    switch(op){
+                        case 1: vistaHidratacion.registrarIngesta(scanner); break;
+                        case 2: vistaHidratacion.establecerMetaDiaria(scanner); break;
+                        case 3: vistaHidratacion.procesoDiario(scanner); break;
+                        case 4: System.out.println("\nVolviendo al menú principal..."); break;
+
+                        default: System.out.println("\nIngreso incorrecto");
+                    }
+                } while (op != 4);
+                scanner.nextLine(); //Limpiando el Buffer
                 // Control de hidratación
                 break;
             case "4" :
