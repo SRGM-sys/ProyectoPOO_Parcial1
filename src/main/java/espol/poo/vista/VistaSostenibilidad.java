@@ -13,7 +13,7 @@ public class VistaSostenibilidad {
         this.control = control;
         this.sc = new Scanner(System.in);
     }
-     /**
+    /**
      * Muestra el menú diario de registro de sostenibilidad.
      * Permite al usuario seleccionar las acciones ecológicas realizadas en el día.
      * Crea un nuevo RegistroSostenibilidad y lo agrega al control.
