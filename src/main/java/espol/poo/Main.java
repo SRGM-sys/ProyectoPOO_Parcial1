@@ -1,22 +1,21 @@
 package espol.poo;
 
-import java.util.Scanner;
-
-import espol.poo.controlador.ControladorActividades;
-import espol.poo.controlador.ControladorHidratacion;
-import espol.poo.controlador.ControladorSesiones;
 import espol.poo.vista.VistaActividadSesion;
-import espol.poo.vista.VistaHidratacion;
+import espol.poo.vista.VistaSostenibilidad;
+import espol.poo.controlador.ControladorActividades;
+import espol.poo.controlador.ControladorSesiones;
+import espol.poo.controlador.ControladorSostenibilidad;
+
+import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
     ControladorActividades controladorA = new ControladorActividades();
     ControladorSesiones controladorS = new ControladorSesiones(controladorA);
     VistaActividadSesion vistaActividadSesion = new VistaActividadSesion(controladorA, controladorS);
-
-    ControladorHidratacion controladorH = new ControladorHidratacion();
-    VistaHidratacion vistaHidratacion = new VistaHidratacion(controladorH);
-
+    ControladorSostenibilidad controlSostenibilidad = new ControladorSostenibilidad();
+    VistaSostenibilidad vistaSostenibilidad = new VistaSostenibilidad(controlSostenibilidad);
+    
     Scanner scanner = new Scanner(System.in);
     String opcion = "";
     do {
@@ -51,31 +50,12 @@ public class Main {
                     default: System.out.println("Opción no válida."); break;
                 }
                 break;
-
-
-            case "3" : // Control de hidratación
-                int op;
-                do {
-                    
-                    vistaHidratacion.mostrarMenu();
-                    System.out.print("Elija una opcion: ");
-                    op = scanner.nextInt();
-
-                    // Submenú del control Hidratación
-                    switch(op){
-                        case 1: vistaHidratacion.registrarIngesta(scanner); break;
-                        case 2: vistaHidratacion.establecerMetaDiaria(scanner); break;
-                        case 3: vistaHidratacion.procesoDiario(scanner); break;
-                        case 4: System.out.println("\nVolviendo al menú principal..."); break;
-
-                        default: System.out.println("\nIngreso incorrecto");
-                    }
-                } while (op != 4);
-                scanner.nextLine(); //Limpiando el Buffer
+            case "3" :
+                // Control de hidratación
                 break;
-
             case "4" :
-                System.out.println("holaaaaa");
+            //Control de sostenibilidad
+                vistaSostenibilidad.mostrarMenuSostenibilidad();
                 break;
             case "5" :
                 System.out.println("holaaaaa");
