@@ -5,11 +5,19 @@ import espol.poo.vista.VistaSostenibilidad;
 import espol.poo.controlador.ControladorActividades;
 import espol.poo.controlador.ControladorSesiones;
 import espol.poo.controlador.ControladorSostenibilidad;
+import espol.poo.vista.VistaJuego;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) {
+        private static final int DIMENSION = 4;
+        private static final List<String> VALORES_ECOLOGICOS = Arrays.asList(
+                "RECIC", "SOLAR", "AGUA", "VIENT", 
+                "BIO", "PELIG", "BOSQUE", "MAR"
+                );
+    public static void main(String[] args) {
     ControladorActividades controladorA = new ControladorActividades();
     ControladorSesiones controladorS = new ControladorSesiones(controladorA);
     VistaActividadSesion vistaActividadSesion = new VistaActividadSesion(controladorA, controladorS);
@@ -18,6 +26,7 @@ public class Main {
     
     Scanner scanner = new Scanner(System.in);
     String opcion = "";
+    VistaJuego vistaJuego = new VistaJuego(scanner);
     do {
         vistaActividadSesion.mostrarMenu();
         opcion = scanner.nextLine().trim();
@@ -58,7 +67,7 @@ public class Main {
                 vistaSostenibilidad.mostrarMenuSostenibilidad();
                 break;
             case "5" :
-                System.out.println("holaaaaa");
+                vistaJuego.iniciarNuevoJuego(DIMENSION, VALORES_ECOLOGICOS);
                 break;
             case "6" :
                 System.out.println("Saliendo de la aplicación...");
@@ -69,5 +78,5 @@ public class Main {
     } while (!opcion.equals("6"));
 
     scanner.close();
-  }
+}
 }
