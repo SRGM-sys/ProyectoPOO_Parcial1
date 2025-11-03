@@ -16,21 +16,21 @@ import espol.poo.modelo.TecnicaEnfoque;
 import espol.poo.modelo.TipoAcademica;
 
 public class VistaActividadSesion {
-    private DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-    private ControladorActividades controladorA;
-    private ControladorSesiones controladorS;
-    final String BOLD = "\u001B[1m";
-    final String RESET = "\u001B[0m";
+    private DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formato de fecha
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"); // Formato de fecha y hora
+    private ControladorActividades controladorA; // Controlador de actividades
+    private ControladorSesiones controladorS; // Controlador de sesiones
+    final String BOLD = "\u001B[1m"; // Estilo de texto en negrita
+    final String RESET = "\u001B[0m"; // Restablecer estilo de texto
 
     public VistaActividadSesion(ControladorActividades controladorA, ControladorSesiones controladorS) {
-        this.controladorA = controladorA;
-        this.controladorS = controladorS;
+        this.controladorA = controladorA; // Inicializa controlador de actividades
+        this.controladorS = controladorS; // Inicializa controlador de sesiones
     }
 
     public void mostrarMenu() {
         System.out.println();
-        System.out.println(BOLD + "\t\t.:MENÚ:." + RESET);
+        System.out.println(BOLD + "\t\t.:MENÚ:." + RESET); // Muestra el menú principal
         System.out.println("1 - Gestión de Actividades");
         System.out.println("2 - Técnicas de Enfoque (Manejo de tiempo)"); 
         System.out.println("3 - Control de hidratación");
@@ -42,7 +42,7 @@ public class VistaActividadSesion {
 
     public void imprimirMenuActividades() {
         System.out.println();
-        System.out.println(BOLD + "Gestión de Actividades" + RESET);
+        System.out.println(BOLD + "Gestión de Actividades" + RESET); // Muestra el menú de actividades
         System.out.println("1.1 Visualizar actividades");
         System.out.println("1.2 Crear actividad");
         System.out.println("1.3 Registrar avance de actividad");
@@ -53,47 +53,47 @@ public class VistaActividadSesion {
 
     public void imprimirMenuTecnicas() {
         System.out.println();
-        System.out.println(BOLD + "Técnicas de Enfoque" + RESET);
+        System.out.println(BOLD + "Técnicas de Enfoque" + RESET); // Muestra el menú de técnicas
         System.out.println("1. Iniciar Pomodoro (25 min Trabajo / 5 min Descanso)");
         System.out.println("2. Iniciar Deep Work (Sesión Larga de 90 min)"); 
         System.out.println("3. Volver al Menú Principal");
         System.out.print("Ingrese su opción: ");
     }
 
-    // Called from Main - shows full list and asks for id to view details
+    // Muestra la lista de actividades y permite seleccionar una para ver detalles
     public void visualizarActividades(Scanner sc) {
         System.out.println();
         System.out.println("-------------------------------------- LISTADO DE ACTIVIDADES ---------------------------------------");
-        List<Actividad> actividades = controladorA.listarActividades();
+        List<Actividad> actividades = controladorA.listarActividades(); // Lista de actividades
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        mostrarListadoActividades(actividades);
+        mostrarListadoActividades(actividades); // Muestra las actividades
         System.out.println("-----------------------------------------------------------------------------------------------------");
         System.out.print("Ingrese el ID de la actividad para ver más detalle (0 para volver): ");
         String line = sc.nextLine().trim();
         int id = -1;
         try { id = Integer.parseInt(line); } catch(Exception e) { id = -1; }
         if (id > 0) {
-            controladorA.buscarPorId(id).ifPresent(a -> mostrarDetalleActividad(a, sc));
+            controladorA.buscarPorId(id).ifPresent(a -> mostrarDetalleActividad(a, sc)); // Muestra detalles de la actividad seleccionada
         }
     }
 
-    // Detailed view with proper history table alignment and prompt to return
+    // Muestra los detalles de una actividad
     public void mostrarDetalleActividad(Actividad a, Scanner sc) {
         System.out.println("============================================================");
         System.out.printf("                DETALLES DEL PROYECTO (ID %d)%n", a.getId());
         System.out.println("============================================================");
         System.out.println("Nombre: " + a.getNombre());
-        String tipo = (a instanceof ActividadAcademica) ? ((ActividadAcademica)a).getTipoAcademica().name() : "PERSONAL";
+        String tipo = (a instanceof ActividadAcademica) ? ((ActividadAcademica)a).getTipoAcademica().name() : "PERSONAL"; // Determina el tipo de actividad
         System.out.println("Tipo: " + tipo);
         if (a instanceof ActividadAcademica) {
             ActividadAcademica aa = (ActividadAcademica)a;
-            System.out.println("Asignatura: " + aa.getAsignatura());
+            System.out.println("Asignatura: " + aa.getAsignatura()); // Muestra la asignatura si es académica
         }
         System.out.println("Prioridad: " + a.getPrioridad().name());
         System.out.println("Estado: " + (a.getEstado()==null?"" : a.getEstado().name()));
-        System.out.println("Fecha Límite: " + a.getFechaVencimiento().format(df));
+        System.out.println("Fecha Límite: " + a.getFechaVencimiento().format(df)); // Muestra la fecha límite
         double horas = a.getTiempoEstimadoMinutos() / 60.0;
-        System.out.println("Tiempo Estimado Total: " + String.format("%.1f horas", horas));
+        System.out.println("Tiempo Estimado Total: " + String.format("%.1f horas", horas)); // Muestra el tiempo estimado
         System.out.println("Avance Actual: " + String.format("%.0f", a.getAvance()) + "%");
         System.out.println("------------------------------------------------------------") ;
         System.out.println("              HISTORIAL DE GESTIÓN DEL TIEMPO               ");
@@ -104,7 +104,7 @@ public class VistaActividadSesion {
             System.out.println("| (sin sesiones registradas)                               |") ;
         } else {
             for (SesionEnfoque s : a.getSesionesEnfoque()) {
-                System.out.println(s.toString());
+                System.out.println(s.toString()); // Muestra las sesiones de enfoque
             }
         }
         System.out.println("------------------------------------------------------------") ;
@@ -113,7 +113,7 @@ public class VistaActividadSesion {
         sc.nextLine();
     }
 
-    // Create activity flow: collects inputs, delegates creation to controller
+    // Crea una nueva actividad
     public void crearActividad(Scanner sc) {
         System.out.println("==========================================");
         System.out.println("      F O C U S F L O W  | C R E A R");
@@ -143,7 +143,7 @@ public class VistaActividadSesion {
             try { prioridad = Prioridad.valueOf(pr.toUpperCase()); } catch(Exception ex) {}
             double tiempoMin = 0;
             try { tiempoMin = Double.parseDouble(te); } catch(Exception ex) {}
-            controladorA.crearActividadPersonal(nombre, desc, fechaV, lugar, prioridad, tiempoMin);
+            controladorA.crearActividadPersonal(nombre, desc, fechaV, lugar, prioridad, tiempoMin); // Crea actividad personal
             System.out.println();
             System.out.println("----------------------------------------");
             System.out.println("ACTIVIDAD PERSONAL '" + nombre + "' creada con éxito.");
@@ -179,7 +179,7 @@ public class VistaActividadSesion {
             try { prioridad = Prioridad.valueOf(pr.toUpperCase()); } catch(Exception ex) {}
             double tiempoHoras = 0;
             try { tiempoHoras = Double.parseDouble(th); } catch(Exception ex) {}
-            controladorA.crearActividadAcademica(nombre, desc, fechaV, asign, tipo, prioridad, tiempoHoras);
+            controladorA.crearActividadAcademica(nombre, desc, fechaV, asign, tipo, prioridad, tiempoHoras); // Crea actividad académica
             System.out.println();
             System.out.println("------------------------------------------");
             System.out.println(tipo.name() + " '" + nombre + "' creado con éxito.");
@@ -191,7 +191,7 @@ public class VistaActividadSesion {
     public void registrarAvance(Scanner sc) {
         System.out.println("--------------------------------- LISTADO DE ACTIVIDADES PENDIENTES ---------------------------------");
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        mostrarListadoActividades(controladorA.listarPendientes());
+        mostrarListadoActividades(controladorA.listarPendientes()); // Muestra actividades pendientes
         System.out.println("-----------------------------------------------------------------------------------------------------");
         System.out.print("Ingrese el ID de la actividad a actualizar (o 0 para salir): ");
         String line = sc.nextLine().trim();
@@ -208,7 +208,7 @@ public class VistaActividadSesion {
                     System.out.print("¿Confirma que el nuevo avance para la actividad ID " + a.getId() + " es " + (int)nuevo + "%? (S/N): ");
                     String conf = sc.nextLine().trim();
                     if (conf.equalsIgnoreCase("S") || conf.equalsIgnoreCase("SI")) {
-                        controladorA.actualizarAvance(a.getId(), nuevo);
+                        controladorA.actualizarAvance(a.getId(), nuevo); // Actualiza el avance de la actividad
                     }
                 }
             });
@@ -218,9 +218,8 @@ public class VistaActividadSesion {
 
     public void eliminarActividad(Scanner sc) {
         System.out.println("-------------------------------------- LISTADO DE ACTIVIDADES ---------------------------------------");
-        List<Actividad> actividades = controladorA.listarActividades();
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        mostrarListadoActividades(actividades);
+        mostrarListadoActividades(controladorA.listarActividades()); // Muestra las actividades
         System.out.println("-----------------------------------------------------------------------------------------------------");
         System.out.print("Ingrese el ID de la actividad a eliminar (o 0 para cancelar): ");
         int id = -1;
@@ -230,7 +229,7 @@ public class VistaActividadSesion {
                 System.out.print("¿Está seguro que desea ELIMINAR PERMANENTEMENTE esta actividad? (S/N): ");
                 String conf = sc.nextLine().trim();
                 if (conf.equalsIgnoreCase("S") || conf.equalsIgnoreCase("SI")) {
-                    controladorA.eliminarActividad(a.getId());
+                    controladorA.eliminarActividad(a.getId()); // Elimina la actividad
                 }
             });
         }
@@ -239,7 +238,9 @@ public class VistaActividadSesion {
 
     public void iniciarPomodoro(Scanner sc) {
         System.out.println("--------------------------------- LISTADO DE ACTIVIDADES PENDIENTES ---------------------------------");
-        mostrarListadoActividades(controladorA.listarPendientes());
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        mostrarListadoActividades(controladorA.listarPendientes()); // Muestra actividades pendientes
+        System.out.println("-----------------------------------------------------------------------------------------------------");
         System.out.print("Ingrese ID de la actividad (o 0 para salir): ");
         int id = -1;
         try { id = Integer.parseInt(sc.nextLine().trim()); } catch(Exception e) {}
@@ -254,7 +255,7 @@ public class VistaActividadSesion {
                     sc.nextLine();
                     LocalDate fecha = LocalDate.now();
                     LocalTime hora = LocalTime.now();
-                    controladorS.crearYAsociarSesion(a.getId(), TecnicaEnfoque.POMODORO, 25, fecha, hora, "Pomodoro registrado (simulación)");
+                    controladorS.crearYAsociarSesion(a.getId(), TecnicaEnfoque.POMODORO, 25, fecha, hora, "Pomodoro registrado (simulación)"); // Registra sesión de Pomodoro
                     System.out.println("--- ¡TIEMPO DE TRABAJO TERMINADO! ---");
                     System.out.println("Sesión registrada. (Avance de la actividad actualizado en base al tiempo).");
                     if (ciclo < 4) {
@@ -272,7 +273,7 @@ public class VistaActividadSesion {
     public void iniciarDeepWork(Scanner sc) {
         System.out.println("--------------------------------- LISTADO DE ACTIVIDADES PENDIENTES ---------------------------------");
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        mostrarListadoActividades(controladorA.listarPendientes());
+        mostrarListadoActividades(controladorA.listarPendientes()); // Muestra actividades pendientes
         System.out.println("-----------------------------------------------------------------------------------------------------");
         System.out.print("Ingrese ID de la actividad (o 0 para salir): ");
         int id = -1;
@@ -284,24 +285,24 @@ public class VistaActividadSesion {
                 sc.nextLine();
                 LocalDate fecha = LocalDate.now();
                 LocalTime hora = LocalTime.now();
-                controladorS.crearYAsociarSesion(a.getId(), TecnicaEnfoque.DEEPWORK, 90, fecha, hora, "DeepWork registrado (simulación)");
+                controladorS.crearYAsociarSesion(a.getId(), TecnicaEnfoque.DEEPWORK, 90, fecha, hora, "DeepWork registrado (simulación)"); // Registra sesión de Deep Work
                 System.out.println("Sesión registrada.");
                 System.out.print("Presione [ENTER] para continuar..."); sc.nextLine();
             });
         }
     }
 
-    // Helper printing methods (used internally by view)
+    // Muestra un listado de actividades
     public void mostrarListadoActividades(List<Actividad> actividades) {
         System.out.println("ID  | TIPO        | NOMBRE                                   | VENCE       | ESTADO      | AVANCE (%)");
         System.out.println("----|-------------|------------------------------------------|-------------|-------------|-----------");
         for (Actividad a: actividades) {
-            String tipo = (a instanceof ActividadAcademica) ? ((ActividadAcademica)a).getTipoAcademica().name() : "PERSONAL";
+            String tipo = (a instanceof ActividadAcademica) ? ((ActividadAcademica)a).getTipoAcademica().name() : "PERSONAL"; // Determina el tipo de actividad
             String nombre = a.getNombre();
             String fecha = a.getFechaVencimiento().toLocalDate().format(df);
             String estado = a.getEstado().name();
             String avance = String.format("%.0f%%", a.getAvance());
-            System.out.printf("%-3d | %-11s | %-40s | %-11s | %-11s | %10s%n", a.getId(), tipo, nombre, fecha, estado, avance);
+            System.out.printf("%-3d | %-11s | %-40s | %-11s | %-11s | %10s%n", a.getId(), tipo, nombre, fecha, estado, avance); // Muestra la información de la actividad
         }
     }
 }

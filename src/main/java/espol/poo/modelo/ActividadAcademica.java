@@ -1,13 +1,19 @@
-package espol.poo.modelo;
+package espol.poo.modelo; 
 import java.time.LocalDateTime;
-public class ActividadAcademica extends Actividad {
-    private String asignatura;
-    private TipoAcademica tipoAcademica;
+
+public class ActividadAcademica extends Actividad { // Clase que extiende Actividad
+    private String asignatura; // Atributo para la asignatura
+    private TipoAcademica tipoAcademica; // Atributo para el tipo académico
+
+    // Constructor de la clase
     public ActividadAcademica(int id, String nombre, String descripcion, LocalDateTime fechaVencimiento, String asignatura, TipoAcademica tipo) {
-        super(id, nombre, descripcion, fechaVencimiento);
-        this.asignatura = asignatura;
-        this.tipoAcademica = tipo;
+        super(id, nombre, descripcion, fechaVencimiento); // Llamada al constructor de la clase padre
+        this.asignatura = asignatura; // Inicialización de la asignatura
+        this.tipoAcademica = tipo; // Inicialización del tipo académico
     }
-    public String getAsignatura() { return asignatura; }
-    public TipoAcademica getTipoAcademica() { return tipoAcademica; }
+
+    // Método para obtener la asignatura
+    public String getAsignatura() { return asignatura; } 
+    // Método para obtener el tipo académico
+    public TipoAcademica getTipoAcademica() { return tipoAcademica; } 
 }
