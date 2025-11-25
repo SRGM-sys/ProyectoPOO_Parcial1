@@ -1,4 +1,4 @@
-package espol.poo.modelo;
+package espol.poo.modelo.Sostenibilidad;
 import java.time.LocalDate;
 public class RegistroSostenibilidad {
      private LocalDate fecha;

@@ -1,4 +1,4 @@
-package espol.poo.modelo;
+package espol.poo.modelo.Actividad;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -5,8 +5,9 @@ import espol.poo.controlador.ControladorJuego;
 // La Vista NO importa JuegoMemoria, en su lugar, el Controlador le pasa la información necesaria o usa la referencia
 import java.util.List;
 import java.util.Scanner;
-import espol.poo.modelo.JuegoMemoria; // Necesario para el método mostrarTablero, que lee el estado del juego.
-import espol.poo.modelo.Carta; // Necesario para el método mostrarTablero
+
+import espol.poo.modelo.Juego.Carta;
+import espol.poo.modelo.Juego.JuegoMemoria;
 
 public class VistaJuego {
     private Scanner scanner;

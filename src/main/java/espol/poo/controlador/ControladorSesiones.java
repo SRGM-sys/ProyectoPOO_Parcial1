@@ -1,5 +1,8 @@
 package espol.poo.controlador;
-import espol.poo.modelo.*;
+import espol.poo.modelo.Actividad.Actividad;
+import espol.poo.modelo.Actividad.SesionEnfoque;
+import espol.poo.modelo.Actividad.TecnicaEnfoque;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;

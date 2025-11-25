@@ -1,6 +1,7 @@
 package espol.poo.vista;
 import espol.poo.controlador.ControladorSostenibilidad;
-import espol.poo.modelo.*;
+import espol.poo.modelo.Sostenibilidad.RegistroSostenibilidad;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
