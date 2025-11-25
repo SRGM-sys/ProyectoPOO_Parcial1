@@ -16,8 +16,8 @@ import espol.poo.vista.VistaSostenibilidad;
 public class Main {
     private static final int DIMENSION = 4; // Dimensión del juego
     private static final List<String> VALORES_ECOLOGICOS = Arrays.asList(
-            "RECIC", "SOLAR", "AGUA", "VIENT", 
-            "BIO", "PELIG", "BOSQUE", "MAR"
+            "RECICLAJE", "SOLAR", "AGUA", "VIENTO", 
+            "BIO", "PELIGRO", "BOSQUE", "MAR"
     );
 
     public static void main(String[] args) {
