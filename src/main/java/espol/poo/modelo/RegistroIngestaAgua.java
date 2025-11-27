@@ -1,25 +1,25 @@
 package espol.poo.modelo;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 // Objeto principal de la opción Hidratación
 public class RegistroIngestaAgua {
     // Un registro debe tener la hora en que se hace y lo que se va a registrar
-    private LocalTime hora;
-   private double cantidadML;
+    private LocalDateTime hora;
+    private double cantidadML;
 
    // Constructor
-    public RegistroIngestaAgua(LocalTime fechaHora, double cantidadML) {
+    public RegistroIngestaAgua(LocalDateTime fechaHora, double cantidadML) {
         this.hora = fechaHora;
         this.cantidadML = cantidadML;
     }
 
     // Setters y Getters como buena práctica
-    public LocalTime getHora() {
+    public LocalDateTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(LocalDateTime hora) {
         this.hora = hora;
     }
 

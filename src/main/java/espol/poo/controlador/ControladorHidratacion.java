@@ -1,7 +1,8 @@
 package espol.poo.controlador;
 
+import java.time.LocalDateTime;
 import java.time.LocalDate;
-import java.time.LocalTime;
+//import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class ControladorHidratacion {
     }
     
     // Creo un objeto del tipo RegistroIngestaAgua y lo añado al ArrayList de registros
-    public void registarIngesta(LocalTime hora, double cantidadML){
+    public void registarIngesta(LocalDateTime hora, double cantidadML){
         RegistroIngestaAgua registro = new RegistroIngestaAgua(hora, cantidadML);
         registros.add(registro);
     }
