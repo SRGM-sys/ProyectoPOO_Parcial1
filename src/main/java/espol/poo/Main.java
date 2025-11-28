@@ -1,5 +1,7 @@
 package espol.poo;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -8,6 +10,9 @@ import espol.poo.controlador.ControladorActividades;
 import espol.poo.controlador.ControladorHidratacion;
 import espol.poo.controlador.ControladorSesiones;
 import espol.poo.controlador.ControladorSostenibilidad;
+import espol.poo.modelo.Actividad.Actividad;
+import espol.poo.modelo.Agua.RegistroIngestaAgua;
+import espol.poo.modelo.Sostenibilidad.RegistroSostenibilidad;
 import espol.poo.vista.VistaActividadSesion;
 import espol.poo.vista.VistaHidratacion;
 import espol.poo.vista.VistaJuego;
@@ -30,6 +35,7 @@ public class Main {
         ControladorSostenibilidad controlSostenibilidad = new ControladorSostenibilidad();
         VistaSostenibilidad vistaSostenibilidad = new VistaSostenibilidad(controlSostenibilidad);
         
+
         Scanner scanner = new Scanner(System.in);
         String opcion = "";
         VistaJuego vistaJuego = new VistaJuego(scanner);

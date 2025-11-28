@@ -18,6 +18,8 @@ public class ControladorJuego {
         // Lógica de inicio...
         int numCartas = modelo.getTablero().getDimension() * modelo.getTablero().getDimension();
         int totalPares = numCartas / 2;
+        
+        modelo.getTablero().imprimirUbicacionDePares();
 
         while (!modelo.juegoTerminado()) {
             jugarTurno(vista);
