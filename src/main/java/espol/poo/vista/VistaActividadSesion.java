@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 import espol.poo.controlador.ControladorActividades;
 import espol.poo.controlador.ControladorSesiones;
-import espol.poo.modelo.Actividad;
-import espol.poo.modelo.ActividadAcademica;
-import espol.poo.modelo.Prioridad;
-import espol.poo.modelo.SesionEnfoque;
+import espol.poo.modelo.Actividad.Actividad;
+import espol.poo.modelo.Actividad.ActividadAcademica;
+import espol.poo.modelo.Actividad.Prioridad;
+import espol.poo.modelo.Actividad.SesionEnfoque;
 import espol.poo.modelo.TecnicaEnfoque;
 import espol.poo.modelo.TipoAcademica;
 
