@@ -1,6 +1,6 @@
 package espol.poo.vista;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 import espol.poo.controlador.ControladorHidratacion;
@@ -31,7 +31,7 @@ public class VistaHidratacion {
         System.out.print("Ingrese la cantidad de agua que ha tomado (en **mililitros**): ");
         double cantidadAgua = scanner.nextDouble();
         // Con LocalTime.now se guarda el tiempo en donde se registra
-        controlador.registarIngesta(LocalDateTime.now(), cantidadAgua);
+        controlador.registarIngesta(LocalTime.now(), cantidadAgua);
         System.out.println("\nRegistro de "+cantidadAgua+" ml añadido");
         
         System.out.println("\n\t\t\t--- PROGRESO RÁPIDO ---");

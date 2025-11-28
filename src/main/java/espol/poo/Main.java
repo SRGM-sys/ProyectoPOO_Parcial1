@@ -1,7 +1,5 @@
 package espol.poo;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -10,55 +8,17 @@ import espol.poo.controlador.ControladorActividades;
 import espol.poo.controlador.ControladorHidratacion;
 import espol.poo.controlador.ControladorSesiones;
 import espol.poo.controlador.ControladorSostenibilidad;
-import espol.poo.modelo.Actividad.Actividad;
-import espol.poo.modelo.Actividad.ActividadAcademica;
-import espol.poo.modelo.Actividad.ActividadPersonal;
-import espol.poo.modelo.Actividad.EstadoActividad;
-import espol.poo.modelo.Actividad.Prioridad;
-import espol.poo.modelo.Agua.RegistroIngestaAgua;
-import espol.poo.modelo.Sostenibilidad.RegistroSostenibilidad;
-import espol.poo.modelo.Actividad.TipoAcademica;
 import espol.poo.vista.VistaActividadSesion;
 import espol.poo.vista.VistaHidratacion;
 import espol.poo.vista.VistaJuego;
 import espol.poo.vista.VistaSostenibilidad;
 
 public class Main {
-        private static final int DIMENSION = 4;
-        private static final List<String> VALORES_ECOLOGICOS = Arrays.asList(
-                "RECIC", "SOLAR", "AGUA", "VIENT", 
-                "BIO", "PELIG", "BOSQUE", "MAR"
-                );
-
-
-    List<Actividad> actividades = new ArrayList<>();
-    List<RegistroIngestaAgua> registrosAgua = new ArrayList<>();
-    List<RegistroSostenibilidad> accionesSostenibles = new ArrayList<>();
-
-    int YEAR = 2025;
-        LocalDateTime now = LocalDateTime.now();
-
-        LocalDateTime f23Nov = LocalDateTime.of(YEAR, 11, 23, 10, 0);
-        LocalDateTime f24Nov = LocalDateTime.of(YEAR, 11, 24, 10, 0);
-        LocalDateTime f28Nov = LocalDateTime.of(YEAR, 11, 28, 22, 0); 
-        LocalDateTime f29Nov = LocalDateTime.of(YEAR, 11, 29, 22, 0); 
-        LocalDateTime f30Nov = LocalDateTime.of(YEAR, 11, 30, 15, 30);
-        LocalDateTime f3Dic = LocalDateTime.of(YEAR, 12, 3, 23, 59);
-        LocalDateTime f10Dic = LocalDateTime.of(YEAR, 12, 10, 10, 0);
-
-
-    public  void inicializarApp(){
-            actividades.add(new ActividadPersonal(1, "Cita Médica", null, f30Nov, "Hospital Central"));
-            actividades.add(new ActividadAcademica(2, "Proyecto", "Con uso de promodoro en dos dias.", f30Nov, "POO", TipoAcademica.PROYECTO));
-            actividades.add(new ActividadAcademica(3, "Tarea", null, f3Dic, "POO", TipoAcademica.TAREA));
-            actividades.add(new ActividadAcademica(4, "Examen", null, f10Dic, "POO", TipoAcademica.EXAMEN));
-
-            registrosAgua.add(new RegistroIngestaAgua(f23Nov, 200.0));
-            registrosAgua.add(new RegistroIngestaAgua(f24Nov,250.0));
-
-            accionesSostenibles.add(new RegistroSostenibilidad(null));
-            accionesSostenibles.add(new RegistroSostenibilidad(null));
-    }
+    private static final int DIMENSION = 4; // Dimensión del juego
+    private static final List<String> VALORES_ECOLOGICOS = Arrays.asList(
+            "RECICLAJE", "SOLAR", "AGUA", "VIENTO", 
+            "BIO", "PELIGRO", "BOSQUE", "MAR"
+    );
 
     public static void main(String[] args) {
         // Inicialización de controladores y vistas

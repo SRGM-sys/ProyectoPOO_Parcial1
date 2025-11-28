@@ -1,9 +1,7 @@
 package espol.poo.modelo.Juego;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.ArrayList;
 
 public class Tablero {
@@ -48,35 +46,4 @@ public class Tablero {
     public int getDimension() {
         return dimension;
     }
-
-    public void imprimirUbicacionDePares() {
-        // Usaremos un Map para agrupar las cartas por su valor y mostrar sus posiciones.
-        Map<String, List<Integer>> ubicaciones = new HashMap<>();
-
-        for (int i = 0; i < cartas.size(); i++) {
-            Carta c = cartas.get(i);
-            String valor = c.getValor();
-            int posicion = i + 1; // Posición 1-based
-
-            // Agrega la posición a la lista de ubicaciones para ese valor
-            ubicaciones.computeIfAbsent(valor, k -> new ArrayList<>()).add(posicion);
-        }
-
-        System.out.println("\n---  UBICACIÓN DE PARES ---");
-        // Itera sobre el mapa para imprimir los resultados
-        for (Map.Entry<String, List<Integer>> entry : ubicaciones.entrySet()) {
-            String valor = entry.getKey();
-            List<Integer> pos = entry.getValue();
-
-            // Formatea la salida para mostrar el par de posiciones
-            if (pos.size() == 2) {
-                System.out.println("Par \"" + valor + "\": Cartas " + pos.get(0) + " y " + pos.get(1));
-            } else {
-                // En un juego normal, esto no debería ocurrir.
-                System.out.println("Valor \"" + valor + "\": Posiciones " + pos);
-            }
-        }
-        System.out.println("------------------------------------------");
-    }
-
 }

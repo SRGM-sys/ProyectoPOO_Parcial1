@@ -1,8 +1,8 @@
 package espol.poo.vista;
 import espol.poo.controlador.ControladorSostenibilidad;
-import espol.poo.modelo.*;
-//import java.time.LocalDate;
-import java.time.LocalDateTime;
+import espol.poo.modelo.Sostenibilidad.RegistroSostenibilidad;
+
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class VistaSostenibilidad {
@@ -20,7 +20,7 @@ public class VistaSostenibilidad {
      * Crea un nuevo RegistroSostenibilidad y lo agrega al control.
      */
     public void mostrarMenuSostenibilidad() {
-        LocalDateTime fechaHoy = LocalDateTime.now();
+        LocalDate fechaHoy = LocalDate.now();
         RegistroSostenibilidad registro = new RegistroSostenibilidad(fechaHoy);
         //Interfaz del registro diario
         System.out.println("\n--- REGISTRO DIARIO DE SOSTENIBILIDAD (" + fechaHoy + ") ---");
@@ -66,7 +66,7 @@ public class VistaSostenibilidad {
         sc.nextLine();
 
          // Mostrar resumen semanal luego de registrar
-        mostrarResumenSemanal(LocalDateTime.now());
+        mostrarResumenSemanal(LocalDate.now());
     }
 
     /**
@@ -74,8 +74,8 @@ public class VistaSostenibilidad {
      * En una versión futura, se podría conectar directamente al método getResumenSemanal del modelo.
      *fecha actual que marca el fin de la semana
      */
-    private void mostrarResumenSemanal(LocalDateTime dia) {
-        LocalDateTime inicioSemana = dia.minusDays(6);
+    private void mostrarResumenSemanal(LocalDate dia) {
+        LocalDate inicioSemana = dia.minusDays(6);
 
         // Encabezado del reporte semanal
         System.out.println("\n--- RESUMEN SEMANAL DE SOSTENIBILIDAD (" + inicioSemana + " - " + dia + ") ---\n");
