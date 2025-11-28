@@ -11,7 +11,7 @@ public class ControladorHidratacion {
     // Crerando el objeto de arreglos
     private ArrayList<RegistroIngestaAgua> registros = new ArrayList<>();
     private double metaDiariaML = 2500; // Inicializado en 2500 como el ejemplo
-    
+
     // Setters y Getters como buena practica
     public ArrayList<RegistroIngestaAgua> getRegistros() {
         return registros;
