@@ -1,4 +1,4 @@
-package espol.poo.modelo;
+package espol.poo.modelo.Juego;
 
 import java.util.Collections;
 import java.util.HashMap;

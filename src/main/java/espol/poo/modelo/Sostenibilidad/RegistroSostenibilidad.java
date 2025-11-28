@@ -1,23 +1,22 @@
-package espol.poo.modelo;
-//import java.time.LocalDate;
-import java.time.LocalDateTime;
+package espol.poo.modelo.Sostenibilidad;
+import java.time.LocalDate;
 public class RegistroSostenibilidad {
-     private LocalDateTime fecha;
+     private LocalDate fecha;
     private boolean usoTransporteSostenible;
     private boolean evitoImpresiones;
     private boolean evitoEnvasesDescartables;
     private boolean separoResiduos;
     //Constructor
-    public RegistroSostenibilidad(LocalDateTime fecha) {
+    public RegistroSostenibilidad(LocalDate fecha) {
         this.fecha = fecha;
     }
 
     //Getters y Setters
-    public LocalDateTime getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

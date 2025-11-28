@@ -5,8 +5,9 @@ import espol.poo.controlador.ControladorJuego;
 // La Vista NO importa JuegoMemoria, en su lugar, el Controlador le pasa la información necesaria o usa la referencia
 import java.util.List;
 import java.util.Scanner;
-import espol.poo.modelo.JuegoMemoria; // Necesario para el método mostrarTablero, que lee el estado del juego.
-import espol.poo.modelo.Carta; // Necesario para el método mostrarTablero
+
+import espol.poo.modelo.Juego.Carta;
+import espol.poo.modelo.Juego.JuegoMemoria;
 
 public class VistaJuego {
     private Scanner scanner;
@@ -49,7 +50,8 @@ public class VistaJuego {
         for (int i = 0; i < dim; i++) {
             System.out.print("+");
             for (int j = 0; j < dim; j++) {
-                System.out.print("-----" + "+");
+                // Se ajusta el ancho a 14 caracteres (12 letras + 2 espacios de margen)
+                System.out.print("--------------" + "+");
             }
             System.out.println();
             
@@ -59,9 +61,11 @@ public class VistaJuego {
                 String contenido;
                 
                 if (c.isEstaVolteada() || c.isEstaEncontrada()) {
-                    contenido = String.format(" %-4s", c.getValor().substring(0, Math.min(c.getValor().length(), 4)));
+                    // Se usa %-12s para reservar espacio para 12 letras y se quita el substring
+                    contenido = String.format(" %-12s ", c.getValor());
                 } else {
-                    contenido = String.format(" %-4s", pos);
+                    // Se ajusta el número al mismo ancho
+                    contenido = String.format(" %-12d ", pos);
                 }
                 
                 System.out.print("|" + contenido);
@@ -70,7 +74,7 @@ public class VistaJuego {
         }
         System.out.print("+");
         for (int j = 0; j < dim; j++) {
-            System.out.print("-----" + "+");
+            System.out.print("--------------" + "+");
         }
         System.out.println();
         
