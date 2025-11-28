@@ -10,14 +10,14 @@ import espol.poo.controlador.ControladorActividades;
 import espol.poo.controlador.ControladorHidratacion;
 import espol.poo.controlador.ControladorSesiones;
 import espol.poo.controlador.ControladorSostenibilidad;
-import espol.poo.modelo.Actividad;
-import espol.poo.modelo.ActividadAcademica;
-import espol.poo.modelo.ActividadPersonal;
-import espol.poo.modelo.EstadoActividad;
-import espol.poo.modelo.Prioridad;
-import espol.poo.modelo.RegistroIngestaAgua;
-import espol.poo.modelo.RegistroSostenibilidad;
-import espol.poo.modelo.TipoAcademica;
+import espol.poo.modelo.Actividad.Actividad;
+import espol.poo.modelo.Actividad.ActividadAcademica;
+import espol.poo.modelo.Actividad.ActividadPersonal;
+import espol.poo.modelo.Actividad.EstadoActividad;
+import espol.poo.modelo.Actividad.Prioridad;
+import espol.poo.modelo.Agua.RegistroIngestaAgua;
+import espol.poo.modelo.Sostenibilidad.RegistroSostenibilidad;
+import espol.poo.modelo.Actividad.TipoAcademica;
 import espol.poo.vista.VistaActividadSesion;
 import espol.poo.vista.VistaHidratacion;
 import espol.poo.vista.VistaJuego;
@@ -56,8 +56,8 @@ public class Main {
             registrosAgua.add(new RegistroIngestaAgua(f23Nov, 200.0));
             registrosAgua.add(new RegistroIngestaAgua(f24Nov,250.0));
 
-            accionesSostenibles.add(new RegistroSostenibilidad(f23Nov));
-            accionesSostenibles.add(new RegistroSostenibilidad(f24Nov));
+            accionesSostenibles.add(new RegistroSostenibilidad(null));
+            accionesSostenibles.add(new RegistroSostenibilidad(null));
     }
 
     public static void main(String[] args) {
