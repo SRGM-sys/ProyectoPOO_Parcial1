@@ -1,8 +1,7 @@
 package espol.poo.controlador;
 
-// Importa el MODELO y la VISTA
-import espol.poo.modelo.Juego.Carta;
-import espol.poo.modelo.Juego.JuegoMemoria;
+import espol.poo.modelo.juego.Carta;
+import espol.poo.modelo.juego.JuegoMemoria;
 import espol.poo.vista.VistaJuego;
 import java.util.List;
 

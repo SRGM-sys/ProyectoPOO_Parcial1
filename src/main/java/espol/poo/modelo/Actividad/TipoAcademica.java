@@ -1,4 +1,4 @@
-package espol.poo.modelo.Actividad;
+package espol.poo.modelo.actividad;
 
 public enum TipoAcademica { //Enum que define los tipos de actividades académicas
     TAREA,      // Representa una tarea académica

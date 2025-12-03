@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import espol.poo.modelo.Agua.RegistroIngestaAgua;
+import espol.poo.modelo.agua.RegistroIngestaAgua;
 
 public class ControladorHidratacion {
     // Crerando el objeto de arreglos

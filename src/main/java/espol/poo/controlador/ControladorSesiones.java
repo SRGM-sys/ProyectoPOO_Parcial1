@@ -1,13 +1,13 @@
 package espol.poo.controlador;
-import espol.poo.modelo.Actividad.Actividad;
-import espol.poo.modelo.Actividad.SesionEnfoque;
-import espol.poo.modelo.Actividad.TecnicaEnfoque;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import espol.poo.modelo.actividad.Actividad;
+import espol.poo.modelo.actividad.SesionEnfoque;
+import espol.poo.modelo.actividad.TecnicaEnfoque;
 
 // Controlador para manejar sesiones de enfoque
 public class ControladorSesiones {

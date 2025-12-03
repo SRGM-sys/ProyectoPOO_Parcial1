@@ -1,13 +1,13 @@
 package espol.poo.vista;
 
 import espol.poo.controlador.ControladorJuego;
+import espol.poo.modelo.juego.Carta;
+import espol.poo.modelo.juego.JuegoMemoria;
+
 // 5) La vista no debe llamar al modelo (pero sí necesita el tipo JuegoMemoria para mostrar el estado)
 // La Vista NO importa JuegoMemoria, en su lugar, el Controlador le pasa la información necesaria o usa la referencia
 import java.util.List;
 import java.util.Scanner;
-
-import espol.poo.modelo.Juego.Carta;
-import espol.poo.modelo.Juego.JuegoMemoria;
 
 public class VistaJuego {
     private Scanner scanner;

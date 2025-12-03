@@ -1,4 +1,4 @@
-package espol.poo.modelo.Actividad; 
+package espol.poo.modelo.actividad; 
 
 public enum Prioridad { // Definición de la enumeración Prioridad
     BAJA,  // Prioridad baja

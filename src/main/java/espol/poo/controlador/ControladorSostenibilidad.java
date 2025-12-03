@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import espol.poo.modelo.Sostenibilidad.RegistroSostenibilidad;
+import espol.poo.modelo.sostenibilidad.RegistroSostenibilidad;
 
 public class ControladorSostenibilidad {
     //Lista para guardar los registros

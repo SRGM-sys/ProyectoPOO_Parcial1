@@ -1,4 +1,4 @@
-package espol.poo.modelo.Agua;
+package espol.poo.modelo.agua;
 
 import java.time.LocalTime;
 

@@ -1,4 +1,4 @@
-package espol.poo.modelo.Actividad; 
+package espol.poo.modelo.actividad; 
 
 public enum EstadoActividad { // Enumeración de estados de actividad
     PENDIENTE, // Estado pendiente

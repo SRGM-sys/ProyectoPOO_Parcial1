@@ -1,4 +1,4 @@
-package espol.poo.modelo.Juego;
+package espol.poo.modelo.juego;
 
 import java.util.List;
 
